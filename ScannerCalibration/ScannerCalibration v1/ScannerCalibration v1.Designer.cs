@@ -68,23 +68,23 @@
             this.CheckL = new System.Windows.Forms.CheckBox();
             this.Limitvalue = new System.Windows.Forms.NumericUpDown();
             this.CheckPL = new System.Windows.Forms.CheckBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.ShiftY = new System.Windows.Forms.NumericUpDown();
-            this.ShiftX = new System.Windows.Forms.NumericUpDown();
             this.Plimitvalue = new System.Windows.Forms.NumericUpDown();
             this.label28 = new System.Windows.Forms.Label();
             this.Rotation_angle = new System.Windows.Forms.NumericUpDown();
             this.label27 = new System.Windows.Forms.Label();
-            this.RotateButton = new System.Windows.Forms.Button();
             this.toolstrip1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.StatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.Direction_combo = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.FitOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NewCal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Tolerance)).BeginInit();
@@ -96,8 +96,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ExpandY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Matrix2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Limitvalue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ShiftY)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ShiftX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Plimitvalue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Rotation_angle)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -359,7 +357,7 @@
             this.Dat_btn.Name = "Dat_btn";
             this.Dat_btn.Size = new System.Drawing.Size(151, 33);
             this.Dat_btn.TabIndex = 21;
-            this.Dat_btn.Text = "Offset";
+            this.Dat_btn.Text = "Creat Dat File";
             this.Dat_btn.UseVisualStyleBackColor = false;
             this.Dat_btn.Click += new System.EventHandler(this.Dat_btn_Click);
             // 
@@ -394,7 +392,7 @@
             this.Length.Size = new System.Drawing.Size(107, 25);
             this.Length.TabIndex = 25;
             this.Length.Value = new decimal(new int[] {
-            240,
+            250,
             0,
             0,
             0});
@@ -568,82 +566,6 @@
             this.CheckPL.Text = "PolyL";
             this.CheckPL.UseVisualStyleBackColor = true;
             // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(246, 447);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(29, 15);
-            this.label23.TabIndex = 44;
-            this.label23.Text = "mm";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(246, 392);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(29, 15);
-            this.label24.TabIndex = 45;
-            this.label24.Text = "mm";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(20, 447);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(49, 15);
-            this.label25.TabIndex = 46;
-            this.label25.Text = "Shift Y";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(20, 392);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(49, 15);
-            this.label26.TabIndex = 47;
-            this.label26.Text = "Shift X";
-            // 
-            // ShiftY
-            // 
-            this.ShiftY.DecimalPlaces = 3;
-            this.ShiftY.Enabled = false;
-            this.ShiftY.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.ShiftY.Location = new System.Drawing.Point(116, 444);
-            this.ShiftY.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ShiftY.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
-            this.ShiftY.Name = "ShiftY";
-            this.ShiftY.Size = new System.Drawing.Size(107, 25);
-            this.ShiftY.TabIndex = 48;
-            // 
-            // ShiftX
-            // 
-            this.ShiftX.DecimalPlaces = 3;
-            this.ShiftX.Enabled = false;
-            this.ShiftX.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.ShiftX.Location = new System.Drawing.Point(116, 390);
-            this.ShiftX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ShiftX.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
-            this.ShiftX.Name = "ShiftX";
-            this.ShiftX.Size = new System.Drawing.Size(107, 25);
-            this.ShiftX.TabIndex = 49;
-            // 
             // Plimitvalue
             // 
             this.Plimitvalue.Location = new System.Drawing.Point(502, 232);
@@ -655,7 +577,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(400, 393);
+            this.label28.Location = new System.Drawing.Point(20, 386);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(55, 15);
             this.label28.TabIndex = 52;
@@ -663,13 +585,13 @@
             // 
             // Rotation_angle
             // 
-            this.Rotation_angle.DecimalPlaces = 2;
+            this.Rotation_angle.DecimalPlaces = 4;
             this.Rotation_angle.Increment = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            this.Rotation_angle.Location = new System.Drawing.Point(502, 389);
+            this.Rotation_angle.Location = new System.Drawing.Point(116, 383);
             this.Rotation_angle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Rotation_angle.Maximum = new decimal(new int[] {
             360,
@@ -688,53 +610,64 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(632, 392);
+            this.label27.Location = new System.Drawing.Point(246, 386);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(44, 15);
             this.label27.TabIndex = 54;
             this.label27.Text = "degree";
             // 
-            // RotateButton
-            // 
-            this.RotateButton.BackColor = System.Drawing.SystemColors.Control;
-            this.RotateButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RotateButton.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RotateButton.Location = new System.Drawing.Point(5, 56);
-            this.RotateButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.RotateButton.Name = "RotateButton";
-            this.RotateButton.Size = new System.Drawing.Size(151, 33);
-            this.RotateButton.TabIndex = 55;
-            this.RotateButton.Text = "Rotation";
-            this.RotateButton.UseVisualStyleBackColor = false;
-            this.RotateButton.Click += new System.EventHandler(this.RotateButton_Click);
-            // 
             // toolstrip1
             // 
             this.toolstrip1.Name = "toolstrip1";
-            this.toolstrip1.Size = new System.Drawing.Size(95, 19);
-            this.toolstrip1.Text = "Wait Motion";
+            this.toolstrip1.Size = new System.Drawing.Size(64, 19);
+            this.toolstrip1.Text = "Waiting";
             // 
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolstrip1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 596);
+            this.toolstrip1,
+            this.toolStripStatusLabel3,
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabel1,
+            this.StatusLabel2});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 485);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
             this.statusStrip1.Size = new System.Drawing.Size(723, 24);
             this.statusStrip1.TabIndex = 43;
             this.statusStrip1.Text = "statusStrip1";
             // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(237, 19);
+            this.toolStripStatusLabel3.Text = "                                                         ";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(139, 19);
+            this.toolStripStatusLabel2.Text = "Scanner Direction :";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 19);
+            // 
+            // StatusLabel2
+            // 
+            this.StatusLabel2.Name = "StatusLabel2";
+            this.StatusLabel2.Size = new System.Drawing.Size(0, 19);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.Dat_btn);
-            this.groupBox1.Controls.Add(this.RotateButton);
-            this.groupBox1.Location = new System.Drawing.Point(351, 484);
+            this.groupBox1.Location = new System.Drawing.Point(367, 410);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(165, 98);
+            this.groupBox1.Size = new System.Drawing.Size(165, 60);
             this.groupBox1.TabIndex = 56;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dat File";
@@ -742,11 +675,11 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.Correxion_btn);
-            this.groupBox2.Location = new System.Drawing.Point(530, 484);
+            this.groupBox2.Location = new System.Drawing.Point(546, 410);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(165, 98);
+            this.groupBox2.Size = new System.Drawing.Size(165, 60);
             this.groupBox2.TabIndex = 57;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Correxion Pro";
@@ -755,22 +688,51 @@
             // 
             this.toolStrip2.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1});
+            this.toolStripLabel1,
+            this.toolStripComboBox1});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(723, 31);
+            this.toolStrip2.Size = new System.Drawing.Size(723, 27);
             this.toolStrip2.TabIndex = 58;
             this.toolStrip2.Text = "toolStrip2";
             // 
-            // toolStripButton1
+            // toolStripLabel1
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(28, 28);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(86, 24);
+            this.toolStripLabel1.Text = "AMP Type :";
+            // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.Items.AddRange(new object[] {
+            "AMP-160",
+            "AMP-250",
+            "AMP-500"});
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 27);
+            this.toolStripComboBox1.TextChanged += new System.EventHandler(this.toolStripComboBox1_Click);
+            // 
+            // Direction_combo
+            // 
+            this.Direction_combo.FormattingEnabled = true;
+            this.Direction_combo.Items.AddRange(new object[] {
+            "Right (AMP-250)",
+            "Back (AMP-160)",
+            "Left"});
+            this.Direction_combo.Location = new System.Drawing.Point(143, 434);
+            this.Direction_combo.Name = "Direction_combo";
+            this.Direction_combo.Size = new System.Drawing.Size(189, 23);
+            this.Direction_combo.TabIndex = 62;
+            this.Direction_combo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(20, 437);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(106, 15);
+            this.label5.TabIndex = 63;
+            this.label5.Text = "Scanner direction";
             // 
             // Form1
             // 
@@ -779,7 +741,9 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(723, 620);
+            this.ClientSize = new System.Drawing.Size(723, 509);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.Direction_combo);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -787,12 +751,6 @@
             this.Controls.Add(this.Rotation_angle);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.Plimitvalue);
-            this.Controls.Add(this.ShiftX);
-            this.Controls.Add(this.ShiftY);
-            this.Controls.Add(this.label26);
-            this.Controls.Add(this.label25);
-            this.Controls.Add(this.label24);
-            this.Controls.Add(this.label23);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.CheckPL);
             this.Controls.Add(this.Limitvalue);
@@ -838,7 +796,7 @@
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximumSize = new System.Drawing.Size(748, 678);
+            this.MaximumSize = new System.Drawing.Size(748, 560);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ScannerCalibration";
@@ -854,8 +812,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ExpandY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Matrix2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Limitvalue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ShiftY)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ShiftX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Plimitvalue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Rotation_angle)).EndInit();
             this.statusStrip1.ResumeLayout(false);
@@ -910,23 +866,23 @@
         private System.Windows.Forms.CheckBox CheckL;
         private System.Windows.Forms.NumericUpDown Limitvalue;
         private System.Windows.Forms.CheckBox CheckPL;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.NumericUpDown ShiftY;
-        private System.Windows.Forms.NumericUpDown ShiftX;
         private System.Windows.Forms.NumericUpDown Plimitvalue;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.NumericUpDown Rotation_angle;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Button RotateButton;
         private System.Windows.Forms.ToolStripStatusLabel toolstrip1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ToolStrip toolStrip2;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ComboBox Direction_combo;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel StatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
     }
 }
 
