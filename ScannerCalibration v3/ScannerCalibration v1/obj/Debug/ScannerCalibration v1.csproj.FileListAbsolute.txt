@@ -1,0 +1,52 @@
+c:\users\seanwu\documents\visual studio 2015\Projects\ScannerCalibration v1\ScannerCalibration v1\bin\Debug\ScannerCalibration v1.exe.config
+c:\users\seanwu\documents\visual studio 2015\Projects\ScannerCalibration v1\ScannerCalibration v1\bin\Debug\ScannerCalibration v1.exe
+c:\users\seanwu\documents\visual studio 2015\Projects\ScannerCalibration v1\ScannerCalibration v1\bin\Debug\ScannerCalibration v1.pdb
+c:\users\seanwu\documents\visual studio 2015\Projects\ScannerCalibration v1\ScannerCalibration v1\obj\Debug\ScannerCalibration v1.csprojResolveAssemblyReference.cache
+c:\users\seanwu\documents\visual studio 2015\Projects\ScannerCalibration v1\ScannerCalibration v1\obj\Debug\ScannerCalibration_v1.Form1.resources
+c:\users\seanwu\documents\visual studio 2015\Projects\ScannerCalibration v1\ScannerCalibration v1\obj\Debug\ScannerCalibration_v1.Properties.Resources.resources
+c:\users\seanwu\documents\visual studio 2015\Projects\ScannerCalibration v1\ScannerCalibration v1\obj\Debug\ScannerCalibration v1.csproj.GenerateResource.Cache
+c:\users\seanwu\documents\visual studio 2015\Projects\ScannerCalibration v1\ScannerCalibration v1\obj\Debug\ScannerCalibration v1.exe
+c:\users\seanwu\documents\visual studio 2015\Projects\ScannerCalibration v1\ScannerCalibration v1\obj\Debug\ScannerCalibration v1.pdb
+D:\Tongtai\Scanlab振鏡控制\ScannerCalibration v1\ScannerCalibration v1\obj\Debug\ScannerCalibration v1.exe
+D:\Tongtai\Scanlab振鏡控制\ScannerCalibration v1\ScannerCalibration v1\obj\Debug\ScannerCalibration v1.pdb
+D:\Tongtai\Scanlab振鏡控制\ScannerCalibration v1\ScannerCalibration v1\obj\Debug\ScannerCalibration_v1.Form1.resources
+D:\Tongtai\Scanlab振鏡控制\ScannerCalibration v1\ScannerCalibration v1\obj\Debug\ScannerCalibration_v1.Properties.Resources.resources
+D:\Tongtai\Scanlab振鏡控制\ScannerCalibration v1\ScannerCalibration v1\obj\Debug\ScannerCalibration v1.csproj.GenerateResource.Cache
+D:\Tongtai\Scanlab振鏡控制\ScannerCalibration v1.exe.config
+D:\Tongtai\Scanlab振鏡控制\ScannerCalibration v1.exe
+D:\Tongtai\Scanlab振鏡控制\ScannerCalibration v1.pdb
+D:\Tongtai\Scanlab振鏡控制\ScannerCalibration\ScannerCalibration v1.exe.config
+D:\Tongtai\Scanlab振鏡控制\ScannerCalibration\ScannerCalibration v1\ScannerCalibration v1\obj\Debug\ScannerCalibration v1.exe
+D:\Tongtai\Scanlab振鏡控制\ScannerCalibration\ScannerCalibration v1\ScannerCalibration v1\obj\Debug\ScannerCalibration v1.pdb
+D:\Tongtai\Scanlab振鏡控制\ScannerCalibration\ScannerCalibration v1\ScannerCalibration v1\obj\Debug\ScannerCalibration_v1.Form1.resources
+D:\Tongtai\Scanlab振鏡控制\ScannerCalibration\ScannerCalibration v1\ScannerCalibration v1\obj\Debug\ScannerCalibration_v1.Properties.Resources.resources
+D:\Tongtai\Scanlab振鏡控制\ScannerCalibration\ScannerCalibration v1\ScannerCalibration v1\obj\Debug\ScannerCalibration v1.csproj.GenerateResource.Cache
+D:\Tongtai\Scanlab振鏡控制\ScannerCalibration\ScannerCalibration v1.exe
+D:\Tongtai\Scanlab振鏡控制\ScannerCalibration\ScannerCalibration v1.pdb
+D:\Tongtai\1.PBF\Scanlab振鏡校正\ScannerCalibration\ScannerCalibration v1.exe.config
+D:\Tongtai\1.PBF\Scanlab振鏡校正\ScannerCalibration\ScannerCalibration v1.exe
+D:\Tongtai\1.PBF\Scanlab振鏡校正\ScannerCalibration\ScannerCalibration v1.pdb
+D:\Tongtai\1.PBF\Scanlab振鏡校正\ScannerCalibration\ScannerCalibration v2\ScannerCalibration v1\obj\Debug\ScannerCalibration v1.csprojResolveAssemblyReference.cache
+D:\Tongtai\1.PBF\Scanlab振鏡校正\ScannerCalibration\ScannerCalibration v2\ScannerCalibration v1\obj\Debug\ScannerCalibration_v1.Form1.resources
+D:\Tongtai\1.PBF\Scanlab振鏡校正\ScannerCalibration\ScannerCalibration v2\ScannerCalibration v1\obj\Debug\ScannerCalibration_v1.Properties.Resources.resources
+D:\Tongtai\1.PBF\Scanlab振鏡校正\ScannerCalibration\ScannerCalibration v2\ScannerCalibration v1\obj\Debug\ScannerCalibration v1.csproj.GenerateResource.Cache
+D:\Tongtai\1.PBF\Scanlab振鏡校正\ScannerCalibration\ScannerCalibration v2\ScannerCalibration v1\obj\Debug\ScannerCalibration v1.exe
+D:\Tongtai\1.PBF\Scanlab振鏡校正\ScannerCalibration\ScannerCalibration v2\ScannerCalibration v1\obj\Debug\ScannerCalibration v1.pdb
+D:\Tongtai\1.PBF\振鏡校正\ScannerCalibration\ScannerCalibration v2\ScannerCalibration v1\obj\Debug\ScannerCalibration v1.csprojResolveAssemblyReference.cache
+D:\Tongtai\1.PBF\振鏡校正\ScannerCalibration\ScannerCalibration v2\ScannerCalibration v1\obj\Debug\ScannerCalibration_v1.Form1.resources
+D:\Tongtai\1.PBF\振鏡校正\ScannerCalibration\ScannerCalibration v2\ScannerCalibration v1\obj\Debug\ScannerCalibration_v1.Properties.Resources.resources
+D:\Tongtai\1.PBF\振鏡校正\ScannerCalibration\ScannerCalibration v2\ScannerCalibration v1\obj\Debug\ScannerCalibration v1.csproj.GenerateResource.Cache
+D:\Tongtai\1.PBF\振鏡校正\ScannerCalibration\ScannerCalibration v1.exe.config
+D:\Tongtai\1.PBF\振鏡校正\ScannerCalibration\ScannerCalibration v2\ScannerCalibration v1\obj\Debug\ScannerCalibration v1.exe
+D:\Tongtai\1.PBF\振鏡校正\ScannerCalibration\ScannerCalibration v2\ScannerCalibration v1\obj\Debug\ScannerCalibration v1.pdb
+D:\Tongtai\1.PBF\振鏡校正\ScannerCalibration\ScannerCalibration v1.exe
+D:\Tongtai\1.PBF\振鏡校正\ScannerCalibration\ScannerCalibration v1.pdb
+D:\Tongtai\(1) PBF\振鏡校正\ScannerCalibration\ScannerCalibration v1.exe.config
+D:\Tongtai\(1) PBF\振鏡校正\ScannerCalibration\ScannerCalibration v1.exe
+D:\Tongtai\(1) PBF\振鏡校正\ScannerCalibration\ScannerCalibration v1.pdb
+D:\Tongtai\(1) PBF\振鏡校正\ScannerCalibration\ScannerCalibration v3\ScannerCalibration v1\obj\Debug\ScannerCalibration v1.csprojResolveAssemblyReference.cache
+D:\Tongtai\(1) PBF\振鏡校正\ScannerCalibration\ScannerCalibration v3\ScannerCalibration v1\obj\Debug\ScannerCalibration_v1.Form1.resources
+D:\Tongtai\(1) PBF\振鏡校正\ScannerCalibration\ScannerCalibration v3\ScannerCalibration v1\obj\Debug\ScannerCalibration_v1.Properties.Resources.resources
+D:\Tongtai\(1) PBF\振鏡校正\ScannerCalibration\ScannerCalibration v3\ScannerCalibration v1\obj\Debug\ScannerCalibration v1.csproj.GenerateResource.Cache
+D:\Tongtai\(1) PBF\振鏡校正\ScannerCalibration\ScannerCalibration v3\ScannerCalibration v1\obj\Debug\ScannerCalibration v1.exe
+D:\Tongtai\(1) PBF\振鏡校正\ScannerCalibration\ScannerCalibration v3\ScannerCalibration v1\obj\Debug\ScannerCalibration v1.pdb
