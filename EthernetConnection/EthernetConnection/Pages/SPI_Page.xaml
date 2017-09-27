@@ -1,0 +1,250 @@
+﻿<Page x:Class="EthernetConnection.Pages.SPI_Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EthernetConnection.Pages"
+      xmlns:vm="clr-namespace:EthernetConnection.GlobalChannel"
+      xmlns:presenter="clr-namespace:EthernetConnection.ViewModel"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="750"      
+      Title="SPI_Page">
+
+    <Page.Resources>
+        <vm:ET_GlobalChannel x:Key="ET_global"/>
+        <presenter:ET_Presenter x:Key="et_presenter"/>
+        <Style x:Key="On/Off_btn" TargetType="{x:Type ToggleButton}">
+            <Setter Property="ClickMode" Value="Press"/>
+            <Setter Property="IsChecked" Value="False"/>
+            <Setter Property="UseLayoutRounding" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Grid>
+                            <Image x:Name="ImageName" Width="20"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter TargetName="ImageName" Property="Source">
+                                    <Setter.Value>
+                                        <BitmapImage UriSource="../Images/DI_normal.png"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="ImageName" Property="Source">
+                                    <Setter.Value>
+                                        <BitmapImage UriSource="../Images/DI_pressed.png"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="White">
+        <Grid.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="../Style/Main_style.xaml"/>
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <!--<RowDefinition Height="1*"/>-->
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <!--<Grid x:Name="Laser_Select">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <RadioButton Grid.Column="1" Content="SPI" Style="{DynamicResource SPI_style}" IsChecked="True"/>
+            <RadioButton Grid.Column="2" Content="IPG" Style="{DynamicResource IPG_style}"/>
+
+
+
+            <GroupBox Grid.Column="4" Header="Type" HorizontalAlignment="Left" Height="61" Margin="20,7,0,0" VerticalAlignment="Top" Width="100">
+                <StackPanel Grid.Column="3">
+                    <RadioButton x:Name="RS232" Content="RS232" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Top" Checked="RS232_Checked"/>
+                    <RadioButton x:Name="Ethernet" Content="Ethernet" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Top" Checked="Ethernet_Checked"/>
+                </StackPanel>
+            </GroupBox>
+        </Grid>-->
+
+        <Grid Grid.Row="0" Grid.Column="0" Margin="0,0,0.4,30" Grid.RowSpan="2">
+            <Button x:Name="Disconnect" Content="Disconnect" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="645,281,0,0" Click="Disconnect_Click"/>
+            <GroupBox Header="RS232" HorizontalAlignment="Left" Height="116" VerticalAlignment="Top" Width="100" Margin="631,120,0,0">
+                <StackPanel>
+                    <Button x:Name="RS232_Write_btn" Content="Write" Click="RS232_Write_btn_Click"/>
+                    <Button x:Name="Close_port" Content="Close Port" Click="Close_port_Click"/>
+                    <Button x:Name="RS232_Console_btn" Content="GO RS232" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Click="RS232_Console_btn_Click"/>
+                </StackPanel>
+            </GroupBox>
+            <Button x:Name="Drain" Content="Drain" HorizontalAlignment="Left" Margin="645,253,0,0" VerticalAlignment="Top" Width="75" Click="Drain_Click"/>
+            <GroupBox Header="Pilot Laser" HorizontalAlignment="Left" Height="51" Margin="11,64,0,0" VerticalAlignment="Top" Width="346">
+                <DockPanel>
+                    <ToggleButton Style="{DynamicResource On/Off_btn}" IsChecked="{Binding Et_vm.Pilot_status,Source={StaticResource ET_global}}"/>
+                    <ToggleButton x:Name="Pilot_Laser" Content="Enable" Margin="5" Click="Pilot_Laser_Click"/>
+                </DockPanel>
+            </GroupBox>
+            <Label x:Name="Read_Power" Content="" HorizontalAlignment="Left" Margin="452,244,0,0" VerticalAlignment="Top" Width="77"/>
+            <Button Content="Button" HorizontalAlignment="Left" Margin="645,321,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+            <Button Content="Button" HorizontalAlignment="Left" Margin="645,345,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+            <GroupBox Header="System Info" HorizontalAlignment="Left" Height="340" Margin="11,120,0,0" VerticalAlignment="Top" Width="503">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.3*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Header="Digital I/O Status">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <GroupBox Header="Inputs">
+                                <StackPanel>
+                                    <Label Content="Temp.(degree)" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+                                    <TextBox x:Name="temp_ambient" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="93"/>
+
+                                    <Label Content="KeySwitch" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                    <TextBox x:Name="keyswitch_status" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Et_vm.Key}" VerticalAlignment="Top" Width="72" DataContext="{DynamicResource ET_global}"/>
+                                    <Label Content="Read Power" VerticalAlignment="Top"/>
+                                    <TextBlock x:Name="Connect_message" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Et_vm.Connect_str}" VerticalAlignment="Top" DataContext="{StaticResource ET_global}"/>
+                                </StackPanel>
+                            </GroupBox>
+                            <GroupBox Grid.Column="1" Header="Outputs">
+
+                            </GroupBox>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Grid.Row="0" Grid.Column="1" Header="Temp. Sensor">
+
+                    </GroupBox>
+                    <GroupBox Grid.Row="1" Grid.Column="1" Header="Relative Humidity">
+
+                    </GroupBox>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="NetworkStream" HorizontalAlignment="Left" Height="340" Margin="514,120,0,0" VerticalAlignment="Top" Width="112">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Vertical" Margin="5">
+                        <Label Content="Trans." HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        <ListBox HorizontalAlignment="Stretch" DataContext="{StaticResource ET_global}" VerticalAlignment="Stretch" HorizontalContentAlignment="Center">
+                            <TextBlock x:Name="TByte1" Text="{Binding Et_vm.TStr[0]}"/>
+                            <TextBlock x:Name="TByte2" Text="{Binding Et_vm.TStr[1]}"/>
+                            <TextBlock x:Name="TByte3" Text="{Binding Et_vm.TStr[2]}"/>
+                            <TextBlock x:Name="TByte4" Text="{Binding Et_vm.TStr[3]}"/>
+                            <TextBlock x:Name="TByte5" Text="{Binding Et_vm.TStr[4]}"/>
+                            <TextBlock x:Name="TByte6" Text="{Binding Et_vm.TStr[5]}"/>
+                            <TextBlock x:Name="TByte7" Text="{Binding Et_vm.TStr[6]}"/>
+                            <TextBlock x:Name="TByte8" Text="{Binding Et_vm.TStr[7]}"/>
+                            <TextBlock x:Name="TByte9" Text="{Binding Et_vm.TStr[8]}"/>
+                        </ListBox>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Margin="5">
+                        <Label Content="Read" HorizontalAlignment="Center"  VerticalAlignment="Top"/>
+                        <ListBox HorizontalAlignment="Stretch" VerticalAlignment="Top" DataContext="{DynamicResource ET_global}" HorizontalContentAlignment="Center">
+                            <TextBlock x:Name="RByte1" Text="{Binding Et_vm.Str[0]}"/>
+                            <TextBlock x:Name="RByte2" Text="{Binding Et_vm.Str[1]}"/>
+                            <TextBlock x:Name="RByte3" Text="{Binding Et_vm.Str[2]}"/>
+                            <TextBlock x:Name="RByte4" Text="{Binding Et_vm.Str[3]}"/>
+                            <TextBlock x:Name="RByte5" Text="{Binding Et_vm.Str[4]}"/>
+                            <TextBlock x:Name="RByte6" Text="{Binding Et_vm.Str[5]}"/>
+                            <TextBlock x:Name="RByte7" Text="{Binding Et_vm.Str[6]}"/>
+                            <TextBlock x:Name="RByte8" Text="{Binding Et_vm.Str[7]}"/>
+                            <TextBlock x:Name="RByte9" Text="{Binding Et_vm.Str[8]}"/>
+                        </ListBox>
+
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="Command" HorizontalAlignment="Left" Height="53" Margin="11,6,0,0" VerticalAlignment="Top" Width="346">
+                <DockPanel>
+                    <ComboBox x:Name="Command_Combox" IsEditable="False" IsTextSearchEnabled="True" DropDownClosed="Command_Combox_DropDownClosed" IsDropDownOpen="False" StaysOpenOnEdit="True"  KeyUp="Command_Combox_KeyUp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="274" Margin="5">
+                        <!--<ComboBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel />
+                    </ItemsPanelTemplate>
+                </ComboBox.ItemsPanel>-->
+                    </ComboBox>
+                    <Button x:Name="Go_btn" Content="Go" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5" Click="Go_btn_Click"/>
+                </DockPanel>
+            </GroupBox>
+            <GroupBox Header="Laser Control" HorizontalAlignment="Left" Height="109" Margin="362,6,0,0" VerticalAlignment="Top" Width="369">
+                <Grid>
+                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="357" Margin="0,58,-0.333,-1.333">
+                        <DockPanel>
+                            <ToggleButton x:Name="IR_status_btn" Style="{DynamicResource On/Off_btn}" IsEnabled="False" IsChecked="{Binding Et_vm.IR_status, Mode=TwoWay, Source={StaticResource ET_global}}"/>
+                            <Button x:Name="Emit_btn" Content="Emit" Margin="5" Width="150" VerticalContentAlignment="Center" Click="Emit_btn_Click" MouseDown="Emit_btn_PreviewMouseDown" DataContext="{StaticResource et_presenter}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="PreviewMouseDown">
+                                        <i:InvokeCommandAction Command="{Binding Emit_btn_PreviewMouseDown_Command}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </Button>
+                            <Button x:Name="Clear_power_btn" Content="Clear" Click="Clear_power_Click" Margin="5"/>
+                        </DockPanel>
+                    </Grid>
+                    <Grid Margin="0,5,10.333,29.333">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="1.2*"/>
+                            <ColumnDefinition Width="0.6*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Set Power" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <TextBox x:Name="Set_Power" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap" 
+                           Text="{Binding Et_vm.Set_power, Source={StaticResource ET_global}}" VerticalAlignment="Top"/>
+                        <Label Content="%" Grid.Column="2"/>
+                        <Label Content="Pulse width" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <TextBox x:Name="Pulse_width" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap" 
+                           DataContext="{StaticResource ET_global}" Text="{Binding Et_vm.Pulse_width, Mode=TwoWay}" VerticalAlignment="Top"/>
+                        <Label Content="s" Grid.Row="1" Grid.Column="2"/>
+                        <TextBlock Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Run x:Name="Watt_text" FontSize="40" Text="{Binding Et_vm.Watt_str, Source={StaticResource ET_global}}"/>
+                            <Run Text="W"/>
+                        </TextBlock>
+                    </Grid>
+                </Grid>
+            </GroupBox>
+
+        </Grid>
+
+        <Grid Grid.Row="1" DataContext="{StaticResource ET_global}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" VerticalAlignment="Center"><Run Text="   Status: "/><Run x:Name="status" Text="{Binding Et_vm.Status_str}"/></TextBlock>
+            <TextBlock Grid.Column="1" VerticalAlignment="Center"><Run Text="   IP:"/><Run x:Name="IP_text" Text="{Binding Et_vm.IP_str}"/></TextBlock>
+            <TextBlock Grid.Column="2" VerticalAlignment="Center"><Run Text="   Port Number:"/><Run x:Name="Port_text" Text="{Binding Et_vm.Port_str}"/></TextBlock>
+        </Grid>
+    </Grid>
+
+</Page>

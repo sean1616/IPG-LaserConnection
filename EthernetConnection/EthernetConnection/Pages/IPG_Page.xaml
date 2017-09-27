@@ -1,0 +1,76 @@
+﻿<Page x:Class="EthernetConnection.Pages.IPG_Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EthernetConnection.Pages"      
+      mc:Ignorable="d" 
+      Loaded="Page_Loaded"
+      d:DesignHeight="450" d:DesignWidth="525"
+      Title="IPG_Page">
+    
+    <Grid Background="White">
+        <Grid.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="../Style/Main_style.xaml"/>
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1.1*"/>
+            <RowDefinition Height="1.5*"/>            
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Button x:Name="Connect_btn" Content="Connect" Click="Connect_btn_Click"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Button x:Name="Read_btn" Content="Read" Click="Read_btn_Click"/>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <GroupBox Header="Guide Laser">
+                <DockPanel Grid.Column="0" Margin="10">
+                    <Grid Width="40"/>
+                    <ToggleButton Style="{DynamicResource On/Off_btn}"/>
+                    <ToggleButton x:Name="GuideBeam_btn" Content="Enable"  Height="20" Width="140" Checked="GuideBeam_btn_Click"/>
+                </DockPanel>
+            </GroupBox>
+            
+        </Grid>
+        <Grid Grid.Row="4" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="1.5*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Label Content="Guide Light" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="2" Grid.Column="1">
+
+                </Grid>
+            </Grid>
+                </Grid>
+    </Grid>
+</Page>

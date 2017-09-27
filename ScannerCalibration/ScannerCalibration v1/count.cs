@@ -10,66 +10,26 @@ using System.Drawing.Drawing2D;
 namespace ScannerCalibration
 {
     class count
-    {        
-        int i, j, n, Distance, Half_Distance;        
-        float expand_x, expand_y, half_point, Real_X, Real_Y;
-        Matrix mymatrix = new Matrix();
+    {
+        int i, j, n, Half_Distance, matrix;
+        float expand_x, expand_y, half_point, Distance;
+        decimal Real_X, Real_Y;       
+        string arrary_rtc5, array_rtc5_x, array_rtc5_y;
+        Matrix Rotation_matrix, Offset_Rotation_matrix;
+        PointF[] PointArray;                
 
-        public int cc()
+        public count(int Length, int Matrix)
         {
-            return 1;
-        }
-        //振鏡坐標
-        public string CorXY ( int Length,  int Matrix, int NewCal, int a, int b)
-        {
-            int m = Matrix;
+            //建立理想點位陣列
+            matrix = Matrix;
+            half_point = (Matrix - 1) / 2; //半邊的點數
+            decimal Distance = Math.Round((decimal)Length / (Matrix - 1), 6); //相鄰點間距(注意小數問題)
+            decimal Half_Distance = Length / 2; //半邊長
 
-            string[,] ArrayX = new string[m,m];
-            string[,] ArrayY = new string[m,m];
-            string[,] ArrayXY = new string[m,m];
+            //點陣列(計算/顯示用)
+            PointArray = new PointF[matrix * matrix];            
             
-            Distance = Length / (Matrix-1);
-            Half_Distance = Length / 2;
-
-            for (i=0; i<Matrix; i++)
-            {
-                for (j = 0; j< Matrix; j++)
-                {
-                    ArrayX[i,j] = Convert.ToString((Half_Distance-(i*Distance))*NewCal);
-                    ArrayY[i,j] = Convert.ToString((Half_Distance-(j*Distance))*NewCal);
-                    ArrayXY[i, j] = ArrayX[i, j] + "  " + ArrayY[i,j];                   
-                }                    
-            }
-
-            return ArrayXY[a,b];
-                         
-        }
-        
-        //實際座標+Offset+Expand+Shift
-        public string CorRealXY(int Length, int Matrix, float OffsetX, float OffsetY, float ExpandX, float ExpandY, 
-            int I, int J, float RotatedAngle, float Final_Rotation)
-        {
-            n = 0;           
-            
-            half_point = (Matrix-1) / 2; //半邊的點數            
-
-            //建立存取矩陣
-            string[,] ArrayRX = new string[Matrix, Matrix];
-            string[,] ArrayRY = new string[Matrix, Matrix];
-            string[,] ArrayRXY = new string[Matrix, Matrix];
-
-            #region 旋轉計算
-            //點陣列
-            PointF[] PointArray = new PointF[Matrix * Matrix];
-
-            //建立旋轉矩陣
-            Matrix Rotation_matrix = new Matrix();
-            Matrix Final_Rotation_matrix = new Matrix();
-            Rotation_matrix.Rotate(RotatedAngle * -1); //以原點旋轉    
-            Final_Rotation_matrix.Rotate(Final_Rotation * -1);
-            //mymatrix.TransformPoints(PointArray);//對點陣列預先旋轉theta角(依振鏡擺放方向)
-
-            //填入點至點陣列
+            //填入理想點至點陣列
             for (i = 0; i < Matrix; i++)
             {
                 for (j = 0; j < Matrix; j++)
@@ -77,158 +37,61 @@ namespace ScannerCalibration
                     Real_X = Half_Distance - (i * Distance);
                     Real_Y = Half_Distance - (j * Distance);
 
-                    PointArray[n] = new PointF(Real_X, Real_Y);
+                    PointArray[n] = new PointF(Convert.ToSingle(Real_X), Convert.ToSingle(Real_Y));
 
                     n++;
                 }
             }
+        }
 
-            //對點陣列進行旋轉theta角
+        //振鏡坐標 (RTC5)
+        public string CorXY(int NewCal, int n)
+        {               
+            array_rtc5_x = Math.Round(PointArray[n].X * NewCal).ToString();
+            array_rtc5_y = Math.Round(PointArray[n].Y * NewCal).ToString();
+            arrary_rtc5 = array_rtc5_x + "   " + array_rtc5_y;
+
+            return arrary_rtc5;
+        }
+
+        public string Cor_Real_XY(float OffsetX, float OffsetY, float ExpandX, float ExpandY,
+            float RotatedAngle, float Offset_Rotation, int n)
+        {
+            //理想量測值
+            string array_rtc5_x = Math.Round(PointArray[n].X,4).ToString();
+            string array_rtc5_y = Math.Round(PointArray[n].Y,4).ToString();
+
+
+            //建立旋轉矩陣
+            Rotation_matrix = new Matrix();
+            Rotation_matrix.Rotate(RotatedAngle * -1); //以原點旋轉 (RotatedAngle) degree
+
+            Offset_Rotation_matrix = new Matrix();
+            Offset_Rotation_matrix.Rotate(Offset_Rotation);
+
+            //量測點陣列旋轉theta角
             Rotation_matrix.TransformPoints(PointArray);
 
-            n = 0;
+            //點的擴張/收縮量
+            expand_x = ExpandX - (i * ExpandX / half_point); 
+            expand_y = ExpandY - (j * ExpandY / half_point);
 
-            //轉換格式(point to string)
-            for (i = 0; i < Matrix; i++)
-            {
-                for (j = 0; j < Matrix; j++)
-                {
-                    ArrayRX[i, j] = Convert.ToString(PointArray[n].X);
-                    ArrayRY[i, j] = Convert.ToString(PointArray[n].Y);
+            //旋轉平移量 for不同振鏡擺放方式
+            PointF[] offset = new PointF[1];
+            offset[0].X = OffsetX;
+            offset[0].Y = OffsetY;
+            Offset_Rotation_matrix.TransformPoints(offset);
 
-                    ArrayRXY[i, j] = ArrayRX[i, j] + "  " + ArrayRY[i, j];
+            //點的總平移量
+            float x_movement = expand_x - offset[0].X;
+            float y_movement = expand_y - offset[0].Y;
 
-                    n++;
-                }
-            }
-            #endregion
-
-
-            #region 位移計算
-            Distance = Length / (Matrix - 1); //相鄰點間距
-            Half_Distance = Length / 2; //半邊長
-            n = 0;
-
-            for (i = 0; i < Matrix; i++)
-            {
-                for (j = 0; j < Matrix; j++)
-                {
-                    expand_x = ExpandX - (i * ExpandX / half_point); //點的擴/縮量
-                    expand_y = ExpandY - (j * ExpandY / half_point);
-
-                    //Real_X = (Half_Distance - (i * Distance) + OffsetX + expand_x);
-                    //Real_Y = (Half_Distance - (j * Distance) - OffsetY + expand_y);
-
-                    //點的總位移量
-                    Real_X = (PointArray[n].X + (i * Distance) - OffsetX + expand_x); 
-                    Real_Y = (PointArray[n].Y + (j * Distance) - OffsetY + expand_y); 
-
-                    //ArrayRX[i, j] = Convert.ToString(Real_X);
-                    //ArrayRY[i, j] = Convert.ToString(Real_Y);
-                    //ArrayRXY[i, j] = ArrayRX[i, j] + "  " + ArrayRY[i, j];
-
-                    n++;
-                }
-            }
-            #endregion
-
-            //填入點至點陣列
-            n = 0;
-            for (i = 0; i < Matrix; i++)
-            {
-                for (j = 0; j < Matrix; j++)
-                {            
-                    PointArray[n] = new PointF(Real_X, Real_Y);
-                    n++;
-                }
-            }
-            Final_Rotation_matrix.TransformPoints(PointArray);
-
-            n = 0;
-
-            for (i = 0; i < Matrix; i++)
-            {
-                for (j = 0; j < Matrix; j++)
-                {
-                   
-                    //Real_X = (Half_Distance - (i * Distance) + OffsetX + expand_x);
-                    //Real_Y = (Half_Distance - (j * Distance) - OffsetY + expand_y);
-
-                    //點的總位移量
-                    Real_X = PointArray[n].X;
-                    Real_Y = PointArray[n].Y;
-
-                    ArrayRX[i, j] = Convert.ToString(Real_X);
-                    ArrayRY[i, j] = Convert.ToString(Real_Y);
-                    ArrayRXY[i, j] = ArrayRX[i, j] + "  " + ArrayRY[i, j];
-
-                    n++;
-                }
-            }
-
-            return ArrayRXY[I, J];
-        }
-
-        //旋轉座標
-        public string CorRXY_Rotation (int Length, int Matrix, int a, int b, float RotatedAngle)
-        {
-            int m = Matrix;
-            float d;
-
-            d = (Matrix - 1) / 2; //半邊的點數            
-
-            //建立存取矩陣
-            float RX, RY;
-            int n = 0;
-            string[,] ArrayRX = new string[Matrix, Matrix];
-            string[,] ArrayRY = new string[Matrix, Matrix];
-            string[,] ArrayRXY = new string[Matrix, Matrix];
+            string real_x = Math.Round(PointArray[n].X + x_movement, 4).ToString();
+            string real_y = Math.Round(PointArray[n].Y + y_movement, 4).ToString(); //位移完
+        
+            string arrary_rtc5 = real_x + "   " + real_y;
             
-            //點陣列
-            PointF[] PointArray = new PointF[Matrix * Matrix];
-            
-            //建立旋轉矩陣
-            Matrix mymatrix = new Matrix();
-            mymatrix.Rotate(RotatedAngle*-1); //以原點旋轉
-            //mymatrix.TransformPoints(PointArray); //對點陣列進行旋轉theta角
-            
-            Distance = Length / (Matrix - 1); //相鄰點間距
-            Half_Distance = Length / 2; //半邊長
-
-            //填入點至點陣列
-            for (i = 0; i < Matrix; i++)
-            {
-                for (j = 0; j < Matrix; j++)
-                {                    
-                    RX = Half_Distance - (i * Distance);
-                    RY = Half_Distance - (j * Distance);
-                    
-                    PointArray[n] = new PointF(RX, RY);
-
-                    n++;
-                }                
-            }
-
-            //對點陣列進行旋轉theta角
-            mymatrix.TransformPoints(PointArray);
-            
-            n = 0;
-
-            //轉換格式
-            for (i = 0; i < Matrix; i++)
-            {
-                for (j = 0; j < Matrix; j++)
-                {                   
-                    ArrayRX[i, j] = Convert.ToString(PointArray[n].X);
-                    ArrayRY[i, j] = Convert.ToString(PointArray[n].Y);
-
-                    ArrayRXY[i, j] = ArrayRX[i, j] + "  " + ArrayRY[i, j];
-
-                    n++;
-                }
-            }
-
-            return ArrayRXY[a, b];
-        }
+            return arrary_rtc5;
+        }                
     }
 }
